@@ -36,7 +36,14 @@
         <img src={user.avatar_url} alt="avatar" />
     </div>
     <h1 class="title has-text-white">{user.name}</h1>
-    <p class="subtitle has-text-white">{user.bio}</p>
+    <div class="subtitle has-text-white">
+        <p>{user.bio}</p>
+        <div class="pt-1">
+            {user.company} | 
+            {user.location} | 
+            Joined {user.created_at}
+        </div>
+    </div>
     <div class="cards">
         <div class="card">
             <div class="card-content">
@@ -57,7 +64,6 @@
                 <span>{user.following}</span>
                 <p>{'Following'.toUpperCase()}</p>
             </div>
-    
         </div>
     </div>
 </header>
