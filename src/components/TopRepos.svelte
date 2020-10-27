@@ -68,7 +68,17 @@
         <div class="card-content">
           <h2 class="card-header-title">Top Languages</h2>
           <div class="content">
-            <Chart data={chartData} showToolTip={false} type="pie" maxSlices={chartData.labels.length} height={350} />
+            <Chart data={chartData} type="percentage" maxSlices={chartData.labels.length} />
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="column is-6">
+      <div class="card">
+        <div class="card-content">
+          <h2 class="card-header-title">Stars Per Language</h2>
+          <div class="content">
+            <Chart data={languageStarsChart} type="percentage" maxSlices={languageStarsChart.labels.length} />
           </div>
         </div>
       </div>
@@ -83,16 +93,7 @@
         </div>
       </div>
     </div>
-    <div class="column is-6">
-      <div class="card">
-        <div class="card-content">
-          <h2 class="card-header-title">Stars Per Language</h2>
-          <div class="content">
-            <Chart data={languageStarsChart} showToolTip={false} type="pie" maxSlices={languageStarsChart.labels.length} height={350} />
-          </div>
-        </div>
-      </div>
-    </div>
+    
     <div class="column is-6">
       <div class="card">
         <div class="card-content">
@@ -105,8 +106,8 @@
     </div>
   </div>
 
-  <h2>Top Repos</h2>
-  <div class="columns is-multiline">
+  <h2 class="title">Top Repos</h2>
+  <div class="top-repos columns is-multiline">
     {#each top10Starred as repo}
     <div class="column is-4">
       <div class="card">
@@ -129,3 +130,9 @@
     {/each}
   </div>
 </div>
+
+<style>
+  .top-repos .card-content {
+    height: 150px;
+  }
+</style>
