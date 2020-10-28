@@ -2,6 +2,8 @@
 
 Beautiful Github Profile Visualizer using Svelte.
 
+[Demo](https://githubvisualizer.vercel.app/)
+
 ![demo](screenshot.png)
 
 ## Built with
