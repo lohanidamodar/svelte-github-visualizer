@@ -20,6 +20,11 @@ const getAllRepos = async username => {
     return allItems;
 }
 
+const getUser = username => {
+    return octokit.users.getByUsername({username: username});
+}
+
 export {
     getAllRepos,
+    getUser,
 }

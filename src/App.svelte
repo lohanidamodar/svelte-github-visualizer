@@ -1,57 +1,78 @@
 <script>
+import { getAllRepos, getUser } from './utils/gh_utils';
 import Profile from './components/Profile.svelte';
 import TopRepos from './components/TopRepos.svelte';
-import {repos} from './data/repos.js';
+// import {repos} from './data/repos.js';
+// import { user } from './data/user.js';
+let username;
+let timer;
+let loading = true;
+const debounce = v => {
+		clearTimeout(timer);
+		timer = setTimeout(() => {
+      username = v;
+      getData();
+		}, 750);
+}
 
-/* import { getAllRepos } from './utils/gh_utils';
-const repos = getAllRepos("lohanidamodar");
-repos.then(repo=>console.log(JSON.stringify(repo))); */
-/* let repos = octokit.repos.listForUser({
-  username:"lohanidamodar",
-  type: "owner",
-  per_page: 100,
-})
-repos.then((res)=>console.log(res)) */
-/* let res = octokit.users.getByUsername({username: "lohanidamodar"});
-res.then((us)=>console.log(us)) */
-let user = {
-  "login": "lohanidamodar",
-  "id": 6360216,
-  "node_id": "MDQ6VXNlcjYzNjAyMTY=",
-  "avatar_url": "https://avatars1.githubusercontent.com/u/6360216?v=4",
-  "gravatar_id": "",
-  "url": "https://api.github.com/users/lohanidamodar",
-  "html_url": "https://github.com/lohanidamodar",
-  "followers_url": "https://api.github.com/users/lohanidamodar/followers",
-  "following_url": "https://api.github.com/users/lohanidamodar/following{/other_user}",
-  "gists_url": "https://api.github.com/users/lohanidamodar/gists{/gist_id}",
-  "starred_url": "https://api.github.com/users/lohanidamodar/starred{/owner}{/repo}",
-  "subscriptions_url": "https://api.github.com/users/lohanidamodar/subscriptions",
-  "organizations_url": "https://api.github.com/users/lohanidamodar/orgs",
-  "repos_url": "https://api.github.com/users/lohanidamodar/repos",
-  "events_url": "https://api.github.com/users/lohanidamodar/events{/privacy}",
-  "received_events_url": "https://api.github.com/users/lohanidamodar/received_events",
-  "type": "User",
-  "site_admin": false,
-  "name": "Damodar Lohani",
-  "company": "PopupBits",
-  "blog": "https://dlohani.com.np",
-  "location": "Kathmandu, Nepal",
-  "email": null,
-  "hireable": true,
-  "bio": "Tech Consultant | Open source enthusiast | ❤ \r\nFlutter | Full stack Developer",
-  "twitter_username": null,
-  "public_repos": 295,
-  "public_gists": 9,
-  "followers": 696,
-  "following": 72,
-  "created_at": "2014-01-09T14:49:59Z",
-  "updated_at": "2020-10-23T05:44:45Z"
-};
+let repos;
+let user;
+const getData = () => {
+  console.log("function get data is called");
+  if(username) {
+    repos = getAllRepos(username);
+    user = getUser(username);
+    loading = false;
+  }
+}
+
+
 </script>
 
 <main>
-		<Profile user={user} />
-    <TopRepos repos={repos} />
+  {#if !loading}
+      <div class="searchbar">
+        <input class="input" type="text" on:keyup={({ target: { value } }) => debounce(value)} />
+      </div>
+      {#await user}
+        <div></div>
+      {:then user} 
+        <Profile user={user.data} />
+        {#await repos}
+          <div></div>
+        {:then repos} 
+        <TopRepos repos={repos} />
+        {/await}
+      {/await}
+    {:else}
+      <div class="initial">
+        <div class="search">
+          <h2 class="title">Search Github by Username</h2>
+          <input autofocus class="input" type="text" on:keyup={({ target: { value } }) => debounce(value)} />
+        </div>
+      </div>
+    {/if}
 		
 </main>
+
+<style>
+  .searchbar {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+  }
+  .initial {
+    background-color: whitesmoke;
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .initial .search {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    width: 300px;
+  }
+</style>
