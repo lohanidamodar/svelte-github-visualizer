@@ -113,7 +113,7 @@
       <div class="card">
         <div class="card-content">
               <p class="card-header-title">
-                {repo.name}
+                <a href={repo.html_url}> {repo.name}</a>
               </p>
           <div class="content">
             {repo.description}
