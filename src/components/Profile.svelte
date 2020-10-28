@@ -31,20 +31,20 @@
     }
 </style>
 
-<header class="profile">
+<header class="profile pt-7">
     <div class="avatar">
         <img src={user.avatar_url} alt="avatar" />
     </div>
-    <h1 class="title has-text-white">{user.name}</h1>
+    <h1 class="title has-text-white mt-7">{user.name}</h1>
     <div class="subtitle has-text-white">
         <p>{user.bio}</p>
-        <div class="pt-1">
+        <div class="pt-2">
             {user.company} | 
             {user.location} | 
             Joined {user.created_at}
         </div>
     </div>
-    <div class="cards">
+    <div class="cards pt-4">
         <div class="card">
             <div class="card-content">
                 <span>{user.public_repos}</span>
