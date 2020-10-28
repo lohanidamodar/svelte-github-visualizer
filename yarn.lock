@@ -31,9 +31,9 @@
     "@octokit/types" "^5.0.0"
 
 "@octokit/core@^3.0.0":
-  version "3.1.4"
-  resolved "https://registry.yarnpkg.com/@octokit/core/-/core-3.1.4.tgz#9c51a3d77bad7d8aa5ec0e997ee90da224206b5e"
-  integrity sha512-eNDwFpKbGbLzPXiFE5PCoeq3nHlKTmWcCtZfQNCwJmW21XqrWr6c2uUhgLCzDeDkQVvKqUWaIgeCDB6i6mvFoA==
+  version "3.2.0"
+  resolved "https://registry.yarnpkg.com/@octokit/core/-/core-3.2.0.tgz#7a872ad4cb8d8d2f417dd7fe1aaff3919c09dc04"
+  integrity sha512-42jzu1GWlCr4KUo52X4hD3if2AwjNJLzsS8mqUs9JkJbsM3vzvSx8AqTnVBQjOM0hQMYBqR7/7SAUTfH7IZqIg==
   dependencies:
     "@octokit/auth-token" "^2.4.0"
     "@octokit/graphql" "^4.3.1"
@@ -171,9 +171,9 @@
   integrity sha512-EYNwp3bU+98cpU4lAWYYL7Zz+2gryWH1qbdDTidVd6hkiR6weksdbMadyXKXNPEkQFhXM+hVO9ZygomHXp+AIw==
 
 "@types/node@*", "@types/node@>= 8":
-  version "14.14.2"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-14.14.2.tgz#d25295f9e4ca5989a2c610754dc02a9721235eeb"
-  integrity sha512-jeYJU2kl7hL9U5xuI/BhKPZ4vqGM/OmK6whiFAXVhlstzZhVamWhDSmHyGLIp+RVyuF9/d0dqr2P85aFj4BvJg==
+  version "14.14.5"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-14.14.5.tgz#e92d3b8f76583efa26c1a63a21c9d3c1143daa29"
+  integrity sha512-H5Wn24s/ZOukBmDn03nnGTp18A60ny9AmCwnEcgJiTgSGsCO7k+NWP7zjCCbhlcnVCoI+co52dUAt9GMhOSULw==
 
 "@types/resolve@1.17.1":
   version "1.17.1"
