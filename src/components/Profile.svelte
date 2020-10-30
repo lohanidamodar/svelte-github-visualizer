@@ -5,7 +5,6 @@
 
 <style>
     .profile {
-        background-color: #222;
         color: white;
         text-align: center;
         padding: 20px;
@@ -19,7 +18,7 @@
         overflow: hidden;
         width: 150px;
         height: 150px;
-        border: 0.5rem solid rgb(0, 112, 243);
+        border: 0.5rem solid #92122D;
         display: flex;
     }
     .cards {

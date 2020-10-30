@@ -34,10 +34,10 @@
 <style>
     .bg {
         z-index: -9999;
-        position: absolute;
+        position: fixed;
         height: 600px;
         width: 100%;
-        background-color: #222222;
+        background-color: #92122Daa;
         top:0;
         right: 0;
     }
